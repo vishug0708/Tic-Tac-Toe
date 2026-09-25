@@ -7,13 +7,44 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #adc178;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.grid {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
 }
 
 h1 {
-    font-size: 60px;
+    font-size: clamp(32px, 7vw, 60px);
     text-align: center;
-    margin: auto;
     color: #f1faee;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.box {
+    width: min(90vw, 375px);
+    aspect-ratio: 1 / 1;
+    margin: 30px auto 0;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    height: 33.333%;
 }
 
 .grid .row {
@@ -21,57 +52,169 @@ h1 {
     border: none;
 }
 
-.box {
-    margin-top: 30px;
-}
-
 .col {
-    height: 125px;
-    width: 125px;
-    border: 2px solid;
+    width: 33.333%;
+    height: 100%;
+    border: 2px solid #222;
     display: flex;
-    font-size: 90px;
     align-items: center;
     justify-content: center;
     background-color: #bab1b1;
     cursor: pointer;
+    font-size: clamp(45px, 15vw, 90px);
+    font-weight: 600;
+    line-height: 1;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
-.row {
+.col:hover {
+    background-color: #c9c0c0;
+}
+
+.col:active {
+    transform: scale(0.96);
+}
+
+.msg {
     display: flex;
+    width: min(90vw, 375px);
+    min-height: 45px;
+    padding: 8px 12px;
+    border: 2px solid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px auto 0;
+    border-radius: 5px;
+    background-color: rgb(190, 203, 202);
+    font-size: 18px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
 }
 
 .btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    margin-top: 30px;
+    margin-top: 25px;
+    width: 100%;
 }
 
 button {
     text-align: center;
-    margin: auto;
-    height: 40px;
-    padding: 7px 15px;
+    min-height: 44px;
+    padding: 8px 20px;
     border: none;
     background-color: #4a4e69;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
     color: white;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.msg{
-    display: flex;
-    height: 40px;
-    border: 2px solid;
-    width: 25%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    margin-top: 30px;
-    border-radius: 5px;
-    background-color: rgb(190, 203, 202);
+button:hover {
+    background-color: #383b52;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 12px;
+    }
+
+    .box {
+        width: min(88vw, 360px);
+        margin-top: 25px;
+    }
+
+    .msg {
+        width: min(88vw, 360px);
+        margin-top: 25px;
+    }
+
+    .btn {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .box {
+        width: 90vw;
+        margin-top: 20px;
+    }
+
+    .msg {
+        width: 90vw;
+        min-height: 42px;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px 18px;
+    }
+}
+
+@media (max-width: 350px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .box {
+        width: 92vw;
+    }
+
+    .msg {
+        width: 92vw;
+    }
+
+    .col {
+        font-size: 50px;
+    }
+}
+
+@media (max-height: 550px) and (orientation: landscape) {
+    .container {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .box {
+        width: min(55vh, 300px);
+        margin-top: 15px;
+    }
+
+    .msg {
+        width: min(55vh, 300px);
+        margin-top: 15px;
+        min-height: 38px;
+    }
+
+    .btn {
+        margin-top: 15px;
+    }
+
+    button {
+        min-height: 38px;
+        padding: 6px 16px;
+    }
 }
