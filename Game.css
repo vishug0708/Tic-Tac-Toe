@@ -36,6 +36,7 @@ h1 {
 }
 
 .box {
+    position: relative;
     width: min(90vw, 375px);
     aspect-ratio: 1 / 1;
     margin: 30px auto 0;
@@ -75,6 +76,88 @@ h1 {
 
 .col:active {
     transform: scale(0.96);
+}
+
+.winning-line {
+    position: absolute;
+    display: none;
+    z-index: 20;
+    background-color: #2563eb;
+    border-radius: 20px;
+    pointer-events: none;
+    box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
+}
+
+.winning-line.show {
+    display: block;
+    animation: lineShow 0.35s ease-out;
+}
+
+.winning-line.row-1 {
+    width: 94%;
+    height: 8px;
+    left: 3%;
+    top: 16.666%;
+}
+
+.winning-line.row-2 {
+    width: 94%;
+    height: 8px;
+    left: 3%;
+    top: 50%;
+}
+
+.winning-line.row-3 {
+    width: 94%;
+    height: 8px;
+    left: 3%;
+    top: 83.333%;
+}
+
+.winning-line.col-1 {
+    width: 8px;
+    height: 94%;
+    left: 16.666%;
+    top: 3%;
+}
+
+.winning-line.col-2 {
+    width: 8px;
+    height: 94%;
+    left: 50%;
+    top: 3%;
+}
+
+.winning-line.col-3 {
+    width: 8px;
+    height: 94%;
+    left: 83.333%;
+    top: 3%;
+}
+
+.winning-line.diagonal-1 {
+    width: 125%;
+    height: 8px;
+    left: -12.5%;
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.winning-line.diagonal-2 {
+    width: 125%;
+    height: 8px;
+    left: -12.5%;
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+@keyframes lineShow {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .msg {
@@ -185,6 +268,16 @@ button:active {
 
     .col {
         font-size: 50px;
+    }
+
+    .winning-line {
+        height: 6px;
+    }
+
+    .winning-line.col-1,
+    .winning-line.col-2,
+    .winning-line.col-3 {
+        width: 6px;
     }
 }
 
